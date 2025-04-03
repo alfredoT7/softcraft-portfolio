@@ -7,10 +7,18 @@ const routes = require('./src/api/restEndPoints');
 
 dotenv.config();
 
+const allowedOrigins = ['http://localhost:5173', 'https://softcraft-portfolio.vercel.app'];
+
 app.use(cors({
-  origin: ["http://localhost:5173","https://www.softcraftbol.com"],
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('No permitido por CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  credentials: true,
+  credentials: true, 
 }));
 
 app.use(express.json());
