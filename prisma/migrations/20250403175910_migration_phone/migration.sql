@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Correo" ADD COLUMN     "phone" BIGINT NOT NULL DEFAULT 0;
