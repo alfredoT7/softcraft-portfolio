@@ -7,7 +7,7 @@ const routes = require('./src/api/restEndPoints');
 
 dotenv.config();
 
-const allowedOrigins = ['http://localhost:5173', 'https://softcraft-portfolio.vercel.app'];
+const allowedOrigins = ['http://localhost:5173', 'https://softcraft-portfolio.vercel.app', 'https://www.softcraftbol.com'];
 
 app.use(cors({
   origin: (origin, callback) => {
